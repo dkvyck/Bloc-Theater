@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc_theater/models/movie.dart';
 import 'package:bloc_theater/repositories/movieRepo.dart';
 import 'package:rxdart/rxdart.dart';
@@ -7,7 +5,7 @@ import 'package:rxdart/rxdart.dart';
 class MovieBloc {
   MovieRepo _movieRepo;
 
-  MovieBloc(this._movieRepo) {}
+  MovieBloc(this._movieRepo);
 
   final BehaviorSubject<MoviesState> _subject = BehaviorSubject<MoviesState>();
 

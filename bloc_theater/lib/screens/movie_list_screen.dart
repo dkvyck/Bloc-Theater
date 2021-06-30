@@ -14,8 +14,6 @@ class _MovieListScreenState extends State<MovieListScreen> {
     UpcomingMovieList(),
   ];
 
-  int _currentTabIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     var mQuery = MediaQuery.of(context).size;

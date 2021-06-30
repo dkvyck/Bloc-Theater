@@ -33,7 +33,7 @@ class MovieRepo {
           img_host,
           '/t/p/w500/${movie.poster_path}',
         );
-        var poster = await NetworkImage(imgUrl.toString());
+        var poster = NetworkImage(imgUrl.toString());
         movie.poster = poster;
       }
       return movie;
@@ -63,7 +63,7 @@ class MovieRepo {
           img_host,
           '/t/p/w500/${movie.poster_path}',
         );
-        var poster = await NetworkImage(imgUrl.toString());
+        var poster = NetworkImage(imgUrl.toString());
         movie.poster = poster;
       }
       return movie;
