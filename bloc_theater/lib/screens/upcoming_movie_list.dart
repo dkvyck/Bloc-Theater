@@ -36,8 +36,7 @@ class _UpcomingMoviesState extends State<UpcomingMovieList> {
             );
           } else if (snap.data is MoviesAreNotLoaded) {
             return Center(
-              child:
-                  Text((snap.data as MoviesAreNotLoaded).exception.toString()),
+              child: ErrorWidget((snap.data as MoviesAreNotLoaded).exception),
             );
           } else if (snap.data is MoviesAreLoaded) {
             var state = (snap.data as MoviesAreLoaded);
