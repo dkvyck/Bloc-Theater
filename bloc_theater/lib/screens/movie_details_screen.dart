@@ -1,3 +1,4 @@
+import 'package:bloc_theater/constants.dart';
 import 'package:bloc_theater/models/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -15,7 +16,7 @@ class MovieDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var mQuery = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color(0xff100E2A),
+      backgroundColor: kBackgroundColor,
       body: Container(
         padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
         child: SingleChildScrollView(
@@ -60,7 +61,7 @@ class MovieDetailsScreen extends StatelessWidget {
                         ),
                         Icon(
                           Icons.star,
-                          color: Color(0xffDFC44B),
+                          color: kStarColor,
                         ),
                       ],
                     ),
@@ -70,7 +71,7 @@ class MovieDetailsScreen extends StatelessWidget {
               ),
               Card(
                 margin: EdgeInsets.all(10),
-                color: Color(0xff171638),
+                color: kListTileColor,
                 child: Container(
                   margin: EdgeInsets.all(10),
                   child: Column(

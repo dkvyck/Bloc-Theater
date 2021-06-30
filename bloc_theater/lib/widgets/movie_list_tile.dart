@@ -1,3 +1,4 @@
+import 'package:bloc_theater/constants.dart';
 import 'package:bloc_theater/models/movie.dart';
 import 'package:bloc_theater/screens/movie_details_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,7 +13,7 @@ class MovieListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     var mQuery = MediaQuery.of(context).size;
     return Card(
-      color: Color(0xff171638),
+      color: kListTileColor,
       shadowColor: Colors.transparent,
       elevation: 0,
       child: Container(
@@ -73,7 +74,7 @@ class MovieListTile extends StatelessWidget {
                             ),
                             Icon(
                               Icons.star,
-                              color: Color(0xffDFC44B),
+                              color: kStarColor,
                             ),
                           ],
                         ),

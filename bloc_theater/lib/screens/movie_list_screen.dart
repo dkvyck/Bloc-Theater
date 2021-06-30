@@ -1,3 +1,4 @@
+import 'package:bloc_theater/constants.dart';
 import 'package:bloc_theater/screens/top_rated_movie_list.dart';
 import 'package:bloc_theater/screens/upcoming_movie_list.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
     var mQuery = MediaQuery.of(context).size;
     return DefaultTabController(
       child: Scaffold(
-        backgroundColor: Color(0xff100E2A),
+        backgroundColor: kBackgroundColor,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
@@ -42,22 +43,6 @@ class _MovieListScreenState extends State<MovieListScreen> {
         body: TabBarView(
           children: _tabs,
         ),
-        // body: _tabs[_currentTabIndex],
-        // bottomNavigationBar: BottomNavigationBar(
-        //   currentIndex: _currentTabIndex,
-        //   onTap: (index) {
-        //     if (_currentTabIndex != index)
-        //       setState(() {
-        //         _currentTabIndex = index;
-        //       });
-        //   },
-        //   items: [
-        //     BottomNavigationBarItem(
-        //         icon: Icon(Icons.star_border_outlined), label: 'Top Rated'),
-        //     BottomNavigationBarItem(
-        //         icon: Icon(Icons.calendar_today_outlined), label: 'Upcoming')
-        //   ],
-        // ),
       ),
       length: 2,
       initialIndex: 0,
