@@ -11,13 +11,11 @@ class TopRatedMovieList extends StatefulWidget {
 
 class _TopRatedMoviesState extends State<TopRatedMovieList> {
   late MovieBloc bloc;
-  late MovieRepo repo;
 
   @override
   void initState() {
     super.initState();
-    repo = MovieRepo();
-    bloc = MovieBloc(repo);
+    bloc = MovieBloc(MovieRepo());
     bloc.getTopRatedMovies();
   }
 
@@ -40,12 +38,13 @@ class _TopRatedMoviesState extends State<TopRatedMovieList> {
               child: ErrorWidget((snap.data as MoviesAreNotLoaded).exception),
             );
           } else if (snap.data is MoviesAreLoaded) {
-            _items.addAll((snap.data as MoviesAreLoaded).movies);
+            var state = (snap.data as MoviesAreLoaded);
+            _items.addAll(state.movies);
             return NotificationListener<ScrollNotification>(
                 onNotification: (ScrollNotification scrollInfo) {
                   if (scrollInfo.metrics.pixels ==
                           scrollInfo.metrics.maxScrollExtent &&
-                      _currentPage != repo.totalTopRatedPages) {
+                      _currentPage != state.totalPages) {
                     bloc.getTopRatedMovies(page: _currentPage + 1);
                     _currentPage++;
                   }

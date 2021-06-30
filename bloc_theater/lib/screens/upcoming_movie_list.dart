@@ -11,13 +11,11 @@ class UpcomingMovieList extends StatefulWidget {
 
 class _UpcomingMoviesState extends State<UpcomingMovieList> {
   late MovieBloc bloc;
-  late MovieRepo repo;
 
   @override
   void initState() {
     super.initState();
-    repo = MovieRepo();
-    bloc = MovieBloc(repo);
+    bloc = MovieBloc(MovieRepo());
     bloc.getUpcomingMovies();
   }
 
@@ -42,12 +40,13 @@ class _UpcomingMoviesState extends State<UpcomingMovieList> {
                   Text((snap.data as MoviesAreNotLoaded).exception.toString()),
             );
           } else if (snap.data is MoviesAreLoaded) {
-            _items.addAll((snap.data as MoviesAreLoaded).movies);
+            var state = (snap.data as MoviesAreLoaded);
+            _items.addAll(state.movies);
             return NotificationListener<ScrollNotification>(
                 onNotification: (ScrollNotification scrollInfo) {
                   if (scrollInfo.metrics.pixels ==
                           scrollInfo.metrics.maxScrollExtent &&
-                      _currentPage + 1 != repo.totalUpcomingPages) {
+                      _currentPage != state.totalPages) {
                     bloc.getUpcomingMovies(page: _currentPage + 1);
                     _currentPage++;
                   }
