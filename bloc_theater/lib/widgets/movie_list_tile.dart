@@ -3,6 +3,7 @@ import 'package:bloc_theater/models/movie.dart';
 import 'package:bloc_theater/screens/movie_details_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class MovieListTile extends StatelessWidget {
   final Movie movie;
@@ -87,7 +88,7 @@ class MovieListTile extends StatelessWidget {
             Align(
               alignment: Alignment.topRight,
               child: Text(
-                movie.release_date.year.toString(),
+                DateFormat('dd/MMM/yyyy').format(movie.release_date),
                 style: TextStyle(
                     color: Colors.white70, fontSize: mQuery.height * 0.012),
               ),

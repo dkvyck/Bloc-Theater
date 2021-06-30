@@ -40,7 +40,7 @@ class MovieDetailsScreen extends StatelessWidget {
                     alignment: Alignment.bottomLeft,
                     height: mQuery.height * 0.38,
                     child: Text(
-                      DateFormat('MM/dd/yyyy').format(movie.release_date),
+                      DateFormat('dd/MMM/yyyy').format(movie.release_date),
                       style: TextStyle(
                           color: Colors.white70,
                           fontSize: mQuery.height * 0.02),
